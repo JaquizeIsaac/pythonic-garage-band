@@ -1,20 +1,17 @@
-# LAB - Class xx
+# LAB - Class 04
 
-Project: Project Name Here
+Project: pythonic-garage-band
 
-Author: Student/Group Name
+Author: Myyela Isaac
 
-Links and Resources
-
-DATABASE_URL - URL to the running Postgres instance/db
-How to initialize/run your application (where applicable)
-e.g. python main.py
+Resources - Instructor JB, Classmates and ChatGpt
 
 How to use your library (where applicable)
 Tests
 
 How do you run tests?
-
-Any tests of note?
+pytest/ pytest watch
 
 Describe any tests that you did not complete, skipped, etc
+
+I have an error that failed giving me 1 failed and 19 passed. I am unsure why at the moment, but will fix it. 

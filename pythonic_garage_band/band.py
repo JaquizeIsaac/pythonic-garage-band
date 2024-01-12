@@ -1,132 +1,148 @@
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 
 class Musician(ABC):
-  """
-  An abstract class to represent a musician
+    """
+    Abstract class defining a musician.
 
-  Attributes:
-    name (str): name of the musician
-  
-  Methods:
-    get_instrument(): returns the musicians instrument
-    play_solo(): returns the musicians solo
-  """
+    Attributes:
+      name (str): The musician's name.
 
-  def __init__(self, name):
-    self.name = name
+    Methods:
+      get_instrument(): Returns the instrument played by the musician.
+      play_solo(): Returns a solo performed by the musician.
+    """
 
-  def __str__(self):
-    return f'My name is {self.name} and I play {self.get_instrument()}'
-  
-  def __repr__(self):
-    return f'{self.__class__.__name__} instance. Name = {self.name}'
-  
-  @abstractclassmethod
-  def get_instrument():
-    pass
+    def __init__(self, name):
+        self.name = name
 
-  @abstractclassmethod
-  def play_solo():
-    pass
+    def __str__(self):
+        return f'My name is {self.name} and I play {self.get_instrument()}'
+
+    def __repr__(self):
+        return f'{self.__class__.__name__} instance. Name = {self.name}'
+
+    @abstractmethod
+    def get_instrument(self):
+        pass
+
+    @abstractmethod
+    def play_solo(self):
+        pass
 
 class Band:
-  """
-  Represents a band
+    """
+    Class representing a musical band.
 
-  Attributes:
-    name (str): name of the band
-    members (list): list of members of the band, each member should be of the Musician class
-    instances (list): list of the number of instances of Band
-  
-  Methods:
-    play_solos(): returns a list of the solo attribute for each member of the band
-    to_list(): returns a list of the number of instances of Band
-  """
+    Attributes:
+      name (str): The name of the band.
+      members (list): A list of band members, each being an instance of the Musician class.
+      instances (list): A list of Band instances.
 
-  instances = []
+    Methods:
+      play_solos(): Returns a list of solos, each performed by a band member.
+      to_list(): Returns a list of all Band instances.
+    """
 
-  def __init__(self, name, members = None):
-    self.name = name
-    self.members = members or []
-    self.instances.append(self)
+    instances = []
 
-  def __str__(self):
-    return self.name
-  
-  def __repr__(self):
-    return f'{self.__class__.__name__} instance. Name = {self.name}'
+    def __init__(self, name, members=None):
+        self.name = name
+        self.members = members or []
+        self.instances.append(self)
 
-  def play_solos(self):
-    return [member.play_solo() for member in self.members]
-  
-  @classmethod
-  def to_list(cls):
-    return cls.instances
-    
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return f'{self.__class__.__name__} instance. Name = {self.name}'
+
+    def play_solos(self):
+        return [member.play_solo() for member in self.members]
+
+    @classmethod
+    def to_list(cls):
+        return cls.instances
+
 class Guitarist(Musician):
-  """
-  Represents a guitarist. Extends Musician class.
+    """
+    Represents a guitarist. Extends Musician class.
 
-  Attributes:
-    name (str): name of the guitarist
-  
-  Methods:
-    get_instrument(): returns 'guitar'
-    play_solo(): returns the guitarist solo
-  """
+    Attributes:
+      name (str): name of the guitarist
 
-  def __init__(self, name):
-    super().__init__(name)
-  
-  def get_instrument(self):
-    return 'guitar'
-  
-  def play_solo(self):
-    return 'face melting guitar solo'
+    Methods:
+      get_instrument(): returns 'guitar'
+      play_solo(): returns the guitarist solo
+    """
+
+    def __init__(self, name):
+        super().__init__(name)
+
+    def get_instrument(self):
+        return 'guitar'
+
+    def play_solo(self):
+        return 'face melting guitar solo'
 
 class Bassist(Musician):
-  """
-  Represents a bassist. Extends Musician class.
+    """
+    Class representing a bassist, extending the Musician class.
 
-  Attributes:
-    name (str): name of the bassist
-  
-  Methods:
-    get_instrument(): returns 'bass'
-    play_solo(): returns the bassist solo
-  """
+    Attributes:
+      name (str): The bassist's name.
 
-  def __init__(self, name):
-    super().__init__(name)
-  
-  def get_instrument(self):
-    return 'bass'
-  
-  def play_solo(self):
-    return 'bom bom buh bom'
+    Methods:
+      get_instrument(): Returns 'bass'.
+      play_solo(): Returns the solo performance by the bassist.
+    """
+
+    def __init__(self, name):
+        super().__init__(name)
+
+    def get_instrument(self):
+        return 'bass'
+
+    def play_solo(self):
+        return 'bom bom buh bom'
 
 class Drummer(Musician):
-  """
-  Represents a drummer. Extends Musician class.
+    """
+    Class representing a drummer, extending the Musician class.
 
-  Attributes:
-    name (str): name of the drummer
-  
-  Methods:
-    get_instrument(): returns 'drums'
-    play_solo(): returns the drummer solo
-  """
+    Attributes:
+      name (str): The drummer's name.
 
-  def __init__(self, name):
-    super().__init__(name)
-  
-  def get_instrument(self):
-    return 'drums'
-  
-  def play_solo(self):
-    return 'rattle boom crash'
+    Methods:
+      get_instrument(): Returns 'drums'.
+      play_solo(): Returns the solo performance by the drummer.
+    """
+
+    def __init__(self, name):
+        super().__init__(name)
+
+    def get_instrument(self):
+        return 'drums'
+
+    def play_solo(self):
+        return 'rattle boom crash'
 
 class Keyboardist(Musician):
-  
-  def __init__(self, name):
-    super().__init__(name)
+    """
+    Represents a keyboardist. Extends Musician class.
+
+    Attributes:
+      name (str): name of the keyboardist
+
+    Methods:
+      get_instrument(): returns 'keyboard'
+      play_solo(): returns the keyboardist solo
+    """
+
+    def __init__(self, name):
+        super().__init__(name)
+
+    def get_instrument(self):
+        return 'keyboard'
+
+    def play_solo(self):
+        return 'keyboard solo'
